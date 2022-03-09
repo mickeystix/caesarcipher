@@ -10,48 +10,54 @@ letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 newstring = ''
 
 def encodeString(string, key):
-    global newstring
-    print("Encoding..." + string + " with key of " + key)
+    if int(key) > 25:
+        output.insert(0, "INVALID KEY, MAX = 25")
+    else:
+        global newstring
+        print("Encoding..." + string + " with key of " + key)
 
-    #Encoding logic
-    for letter in string.upper(): 
-        if letter in letters: 
-            num = int(letters.find(letter)) + int(key) 
+        #Encoding logic
+        for letter in string.upper(): 
+            if letter in letters: 
+                num = int(letters.find(letter)) + int(key) 
 
-            if num >= len(letters):
-                num = num - len(letters)
-            elif num < 0:
-                num = num + len(letters)
+                if num >= len(letters):
+                    num = num - len(letters)
+                elif num < 0:
+                    num = num + len(letters)
 
-            newstring = newstring + letters[num]
-        else:
-            newstring = newstring + letter
+                newstring = newstring + letters[num]
+            else:
+                newstring = newstring + letter
 
-    output.insert(0, newstring)
-    newstring = ''
-    num = 0
+        output.insert(0, newstring)
+        newstring = ''
+        num = 0
 
 def decodeString(string, key):
-    global newstring
-    print("Decoding..." + string + " with key of " + key)
+    if key > 26:
+        output.insertt(0, "INVALID KEY, MAX = 25")
+    else:
+        global newstring
+        print("Decoding..." + string + " with key of " + key)
 
-    #Decoding logic
-    for letter in string.upper():
-        if letter in letters:
-            num = int(letters.find(letter)) - int(key)
+        #Decoding logic
+        for letter in string.upper():
+            if letter in letters:
+                num = int(letters.find(letter)) - int(key)
 
-            if num >= len(letters):
-                num = num - len(letters)
-            elif num < 0:
-                num = num + len(letters)
+                if num >= len(letters):
+                    num = num - len(letters)
+                elif num < 0:
+                    num = num + len(letters)
 
-            newstring = newstring + letters[num]
-        else:
-            newstring = newstring + letter
+                newstring = newstring + letters[num]
+            else:
+                newstring = newstring + letter
 
-    output.insert(0, newstring)
-    newstring = ''
-    num = 0
+        output.insert(0, newstring)
+        newstring = ''
+        num = 0
 
 def clearOutput():
     output.delete(0, END)

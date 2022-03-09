@@ -14,8 +14,6 @@ def encodeString(string, key):
         output.insert(0, "INVALID KEY, MAX = 25")
     else:
         global newstring
-        print("Encoding..." + string + " with key of " + key)
-
         #Encoding logic
         for letter in string.upper(): 
             if letter in letters: 
@@ -39,8 +37,6 @@ def decodeString(string, key):
         output.insertt(0, "INVALID KEY, MAX = 25")
     else:
         global newstring
-        print("Decoding..." + string + " with key of " + key)
-
         #Decoding logic
         for letter in string.upper():
             if letter in letters:
